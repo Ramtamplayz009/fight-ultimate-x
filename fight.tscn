@@ -1,0 +1,290 @@
+[gd_scene load_steps=21 format=3 uid="uid://3viyv3aoi5ft"]
+
+[ext_resource type="Script" path="res://fight.gd" id="1_id6p0"]
+[ext_resource type="Theme" uid="uid://bak8i8e8smibt" path="res://theme.tres" id="1_vx6t4"]
+[ext_resource type="Texture2D" uid="uid://caswcda2wvhby" path="res://Home Button.png" id="2_jr2bt"]
+[ext_resource type="FontFile" uid="uid://c2ljxavxlypob" path="res://font/Pixellari.ttf" id="3_i7gq8"]
+[ext_resource type="Texture2D" uid="uid://btyhw02xlbh4t" path="res://Tiles/Tile.png" id="4_lpuho"]
+[ext_resource type="Texture2D" uid="uid://coc753f0s0yb4" path="res://Tiles/DirtTile.png" id="5_5gygr"]
+[ext_resource type="Texture2D" uid="uid://o3sv2l5y1jws" path="res://Enemys/Bemo.png" id="5_ccw5e"]
+[ext_resource type="Material" uid="uid://upqbe8fpp5ng" path="res://cooldown_material.tres" id="7_gelxg"]
+[ext_resource type="Shader" path="res://cooldown.gdshader" id="7_nvebo"]
+[ext_resource type="Texture2D" uid="uid://djf74a00sgslf" path="res://ability buttons/shootbutton.png" id="7_pef3h"]
+[ext_resource type="Texture2D" uid="uid://wt602t6c2pdl" path="res://Guy/Guypoint.png" id="7_t65ox"]
+[ext_resource type="Texture2D" uid="uid://dlk06gjhw68l6" path="res://ability buttons/Energyballbutton.png" id="8_jmnl8"]
+[ext_resource type="Texture2D" uid="uid://01iuwm1q61nn" path="res://ability buttons/BombButton.png" id="9_dm55a"]
+[ext_resource type="StyleBox" uid="uid://bv5bsst7fbbgu" path="res://button_style.tres" id="14_7lcgo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50y6s"]
+bg_color = Color(9.2411e-06, 0.702879, 0.9444, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6tlm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipd3t"]
+shader = ExtResource("7_nvebo")
+shader_parameter/progress = 0.47
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_14r4q"]
+shader = ExtResource("7_nvebo")
+shader_parameter/progress = 0.47
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2b57q"]
+bg_color = Color(0.617262, 0.67312, 1.80972e-05, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iah7m"]
+bg_color = Color(0.941176, 0.968627, 0.854902, 1)
+
+[node name="Fight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_id6p0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0136)
+theme_override_styles/panel = SubResource("StyleBoxFlat_50y6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.00623)
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+
+[node name="PlayerHPVBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HPLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/PlayerHPVBox"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+text = "HP:"
+horizontal_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/HBoxContainer/PlayerHPVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+value = 100.0
+show_percentage = false
+
+[node name="HPAmount" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/PlayerHPVBox"]
+layout_mode = 2
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="UsernameAndHomeVbox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CoinsLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][img=64]res://coin.png[/img] [wave]0[/wave][/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="UsernamePanel" type="PanelContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_vx6t4")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/UsernamePanel"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+
+[node name="UsernameLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/UsernamePanel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+theme_override_fonts/font = ExtResource("3_i7gq8")
+text = "Catmonster"
+
+[node name="HomeButton" type="TextureButton" parent="VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+texture_normal = ExtResource("2_jr2bt")
+stretch_mode = 3
+
+[node name="CPUHPVBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HPLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/CPUHPVBox"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+text = "HP:"
+horizontal_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="VBoxContainer/MarginContainer/HBoxContainer/CPUHPVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+max_value = 50.0
+value = 50.0
+show_percentage = false
+
+[node name="HPAmount" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/CPUHPVBox"]
+layout_mode = 2
+text = "50/50"
+horizontal_alignment = 1
+
+[node name="FightHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerPos" type="Control" parent="VBoxContainer/FightHBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+
+[node name="EnemyPos" type="Control" parent="VBoxContainer/FightHBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n6tlm")
+
+[node name="Ground" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GroundTile" type="TextureRect" parent="VBoxContainer/PanelContainer/Ground"]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("4_lpuho")
+stretch_mode = 1
+
+[node name="DirtTile" type="TextureRect" parent="VBoxContainer/PanelContainer/Ground"]
+layout_mode = 2
+texture = ExtResource("5_5gygr")
+stretch_mode = 1
+
+[node name="DirtTile2" type="TextureRect" parent="VBoxContainer/PanelContainer/Ground"]
+layout_mode = 2
+texture = ExtResource("5_5gygr")
+stretch_mode = 1
+
+[node name="DirtTile3" type="TextureRect" parent="VBoxContainer/PanelContainer/Ground"]
+layout_mode = 2
+texture = ExtResource("5_5gygr")
+stretch_mode = 1
+
+[node name="DirtTile4" type="TextureRect" parent="VBoxContainer/PanelContainer/Ground"]
+layout_mode = 2
+texture = ExtResource("5_5gygr")
+stretch_mode = 1
+
+[node name="AbilityHbox" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="ShootButton" type="TextureButton" parent="VBoxContainer/PanelContainer/AbilityHbox"]
+material = ExtResource("7_gelxg")
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("7_pef3h")
+
+[node name="EnergyballButton" type="TextureButton" parent="VBoxContainer/PanelContainer/AbilityHbox"]
+material = SubResource("ShaderMaterial_ipd3t")
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("8_jmnl8")
+
+[node name="BombButton" type="TextureButton" parent="VBoxContainer/PanelContainer/AbilityHbox"]
+material = SubResource("ShaderMaterial_14r4q")
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("9_dm55a")
+
+[node name="Bemo" type="Sprite2D" parent="."]
+position = Vector2(2269, 312)
+scale = Vector2(5, 5)
+texture = ExtResource("5_ccw5e")
+flip_h = true
+
+[node name="Guy" type="Sprite2D" parent="."]
+position = Vector2(2326, 817)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_t65ox")
+
+[node name="ULost" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ULost"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_vx6t4")
+
+[node name="MarginContainer" type="MarginContainer" parent="ULost/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ULost/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ULost/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i7gq8")
+theme_override_font_sizes/font_size = 250
+text = "YOU LOST!"
+
+[node name="HSeparator" type="HSeparator" parent="ULost/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+
+[node name="RetryButton" type="Button" parent="ULost/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vx6t4")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = ExtResource("14_7lcgo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2b57q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iah7m")
+theme_override_styles/normal = ExtResource("14_7lcgo")
+text = "RETRY?"

@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bak8i8e8smibt"]
+
+[ext_resource type="FontFile" uid="uid://c7xqdnevlpjrn" path="res://font/Pixeled.ttf" id="1_pnkay"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dokq4"]
+color = Color(1, 1, 1, 1)
+thickness = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6638a"]
+bg_color = Color(4.09111e-06, 0.728101, 0.0597226, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80djk"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofn48"]
+bg_color = Color(0.824573, 0, 0.0541226, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("1_pnkay")
+HBoxContainer/constants/separation = 40
+HSeparator/styles/separator = SubResource("StyleBoxLine_dokq4")
+Label/font_sizes/font_size = 50
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 5
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_6638a")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_80djk")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ofn48")
