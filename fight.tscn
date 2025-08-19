@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://3viyv3aoi5ft"]
 
-[ext_resource type="Script" path="res://fight.gd" id="1_id6p0"]
+[ext_resource type="Script" uid="uid://ckfjeo1xri61h" path="res://fight.gd" id="1_id6p0"]
 [ext_resource type="Theme" uid="uid://bak8i8e8smibt" path="res://theme.tres" id="1_vx6t4"]
 [ext_resource type="Texture2D" uid="uid://caswcda2wvhby" path="res://Home Button.png" id="2_jr2bt"]
 [ext_resource type="FontFile" uid="uid://c2ljxavxlypob" path="res://font/Pixellari.ttf" id="3_i7gq8"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://coc753f0s0yb4" path="res://Tiles/DirtTile.png" id="5_5gygr"]
 [ext_resource type="Texture2D" uid="uid://o3sv2l5y1jws" path="res://Enemys/Bemo.png" id="5_ccw5e"]
 [ext_resource type="Material" uid="uid://upqbe8fpp5ng" path="res://cooldown_material.tres" id="7_gelxg"]
-[ext_resource type="Shader" path="res://cooldown.gdshader" id="7_nvebo"]
+[ext_resource type="Shader" uid="uid://cpktb7phdpw7b" path="res://cooldown.gdshader" id="7_nvebo"]
 [ext_resource type="Texture2D" uid="uid://djf74a00sgslf" path="res://ability buttons/shootbutton.png" id="7_pef3h"]
 [ext_resource type="Texture2D" uid="uid://wt602t6c2pdl" path="res://Guy/Guypoint.png" id="7_t65ox"]
 [ext_resource type="Texture2D" uid="uid://dlk06gjhw68l6" path="res://ability buttons/Energyballbutton.png" id="8_jmnl8"]
@@ -109,6 +109,14 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center][img=64]res://coin.png[/img] [wave]0[/wave][/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="GemsLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][img=64]res://Gem.png[/img] [wave]0[/wave][/center]"
 fit_content = true
 autowrap_mode = 0
 

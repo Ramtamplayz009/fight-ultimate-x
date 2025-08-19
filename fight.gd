@@ -2,6 +2,8 @@ extends Control
 
 var coins: int = 100
 
+var gems: int = 0
+
 @onready var bemo: Sprite2D = $Bemo
 @onready var guy: Sprite2D = $Guy
 
@@ -21,6 +23,7 @@ var player_hp: int = 100
 const MAX_BEMO_HP: int = 50
 var bemo_hp: int = 50
 
+# Sets player cooldown
 const SHOOT_COOLDOWN: float = 2.5
 var shoot_cooldown: float = 0
 const EB_COOLDOWN: float = 5
@@ -50,6 +53,8 @@ const BEMO_DAMAGE: int = 10
 @onready var retry_button: Button = $ULost/PanelContainer/MarginContainer/VBoxContainer/RetryButton
 
 @onready var coins_label: RichTextLabel = $VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/CoinsLabel
+@onready var gems_label: RichTextLabel = $VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/GemsLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,6 +67,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_update_coins()
+	_update_gems()
 	
 	if player_hp > 0:
 		guy.position = player_pos.global_position - Vector2(0, guy.scale.y * guy.texture.get_size().y / 2)
@@ -155,3 +161,7 @@ func _animate_bemo_death() -> void:
 func _update_coins() -> void:
 	var text: String = "[center][img=64]res://coin.png[/img] [wave]%d[/wave][/center]" % coins
 	coins_label.text = text
+
+func _update_gems() -> void:
+	var text: String = "[center][img=64]res://Gem.png[/img] [wave]%d[/wave][/center]" % gems
+	gems_label.text = text
