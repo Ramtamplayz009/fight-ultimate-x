@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://upqbe8fpp5ng"]
 
-[ext_resource type="Shader" path="res://cooldown.gdshader" id="1_tirwg"]
+[ext_resource type="Shader" uid="uid://cpktb7phdpw7b" path="res://cooldown.gdshader" id="1_tirwg"]
 
 [resource]
 shader = ExtResource("1_tirwg")

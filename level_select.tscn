@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://hlls76q2w8yw"]
+
+[ext_resource type="PackedScene" uid="uid://c5dce702yomif" path="res://level_button.tscn" id="1_il3u1"]
+[ext_resource type="Script" uid="uid://cwpdwf87ax8nh" path="res://level_select.gd" id="1_vomi7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vomi7"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vomi7")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vomi7")
+
+[node name="LevelButton" parent="GridContainer/PanelContainer" instance=ExtResource("1_il3u1")]
+layout_mode = 2
+level = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vomi7")
+
+[node name="LevelButton" parent="GridContainer/PanelContainer2" instance=ExtResource("1_il3u1")]
+layout_mode = 2
+level = 2

@@ -1,8 +1,7 @@
 extends Control
+class_name Fight
 
-var coins: int = 100
-
-var gems: int = 0
+signal home
 
 @onready var bemo: Sprite2D = $Bemo
 @onready var guy: Sprite2D = $Guy
@@ -16,6 +15,7 @@ var gems: int = 0
 @onready var bemo_hp_amount: Label = $VBoxContainer/MarginContainer/HBoxContainer/CPUHPVBox/HPAmount
 @onready var player_hp_amount: Label = $VBoxContainer/MarginContainer/HBoxContainer/PlayerHPVBox/HPAmount
 
+var level: int
 
 const MAX_PLAYER_HP: int = 100
 var player_hp: int = 100
@@ -54,6 +54,7 @@ const BEMO_DAMAGE: int = 10
 
 @onready var coins_label: RichTextLabel = $VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/CoinsLabel
 @onready var gems_label: RichTextLabel = $VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/GemsLabel
+@onready var home_button: TextureButton = $VBoxContainer/MarginContainer/HBoxContainer/UsernameAndHomeVbox/HomeButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,6 +64,8 @@ func _ready() -> void:
 	bomb_button.pressed.connect(_bomb)
 	
 	retry_button.pressed.connect(_retry)
+	
+	home_button.pressed.connect(home.emit)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -141,16 +144,16 @@ func _bemo_shoot() -> void:
 	player_hp -= BEMO_DAMAGE
 
 func _animate_player_death() -> void:
-	coins -= 10
-	coins = max(0, coins)
+	progress.coins -= 10
+	progress.coins = max(0, progress.coins)
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.tween_property(guy, "position:y", guy.position.y + 1000, 1.5)
 
 func _animate_bemo_death() -> void:
-	coins += 50
-	coins = min(9999, coins)
+	progress.coins += 50
+	progress.coins = min(9999, progress.coins)
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
@@ -159,9 +162,9 @@ func _animate_bemo_death() -> void:
 	_retry()
 
 func _update_coins() -> void:
-	var text: String = "[center][img=64]res://coin.png[/img] [wave]%d[/wave][/center]" % coins
+	var text: String = "[center][img=64]res://coin.png[/img] [wave]%d[/wave][/center]" % progress.coins
 	coins_label.text = text
 
 func _update_gems() -> void:
-	var text: String = "[center][img=64]res://Gem.png[/img] [wave]%d[/wave][/center]" % gems
+	var text: String = "[center][img=64]res://Gem.png[/img] [wave]%d[/wave][/center]" % progress.gems
 	gems_label.text = text

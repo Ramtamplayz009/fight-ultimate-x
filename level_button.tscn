@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5dce702yomif"]
+
+[ext_resource type="Texture2D" uid="uid://jl83hmj118yo" path="res://grass.png" id="1_j8bpn"]
+[ext_resource type="Theme" uid="uid://bak8i8e8smibt" path="res://theme.tres" id="2_shs6u"]
+[ext_resource type="Script" uid="uid://g28epeigvxn6" path="res://level_button.gd" id="2_txyvr"]
+
+[node name="LevelButton" type="TextureButton"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_j8bpn")
+script = ExtResource("2_txyvr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -49.0
+offset_right = 105.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_shs6u")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL 1"

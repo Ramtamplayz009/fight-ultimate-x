@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Fight Ultimate X"
-run/main_scene="res://fight.tscn"
+run/main_scene="uid://bx05j3vnp83ve"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+progress="*res://progress.gd"
 
 [display]
 
